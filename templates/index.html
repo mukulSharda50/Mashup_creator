@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Remixer Web App</title>
+</head>
+<body>
+    <div class="outer-container">
+        <div>
+            <h1 class="title">Music RemiXer</h1>
+        </div>
+        <div class="container">
+            <form action="/submit" method="POST" class="form-container" enctype="multipart/form-data" name="form">
+                <div class="input-field">
+                    <label for="file">Enter singer name:</label>
+                    <input type="text" name="singer" id="singer" required>
+                </div>
+                <div class="input-field">
+                    <label for="weights">Enter number of videos:</label>
+                    <input type="text" name="num_videos" id="num_videos" required>
+                </div>
+                <div class="input-field">
+                    <label for="impacts">Enter duration of each video:</label>
+                    <input type="text" name="duration" id="duration" required>
+                </div>
+                <div class="input-field">
+                    <label for="email">Enter your valid email id:</label>
+                    <input type="email" name="email" id="email" placeholder="eg: johnsmith@gmail.com" required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <div style="display: none;" id="loader">
+                Creating mashup... Please wait!!
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        form.addEventListener('submit', function(){
+            // form.reset();
+            document.getElementById('loader').style.display = "block";
+        });
+    </script>
+</body>
+</html>
